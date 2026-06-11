@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud Drive</title>
+
+    <style>
+    body {
+        font-family: Arial;
+        margin: 40px;
+    }
+
+    button {
+        padding: 5px 10px;
+    }
+
+    li {
+        margin: 5px 0;
+    }
+    </style>
+
+</head>
+
+<body>
+
+<h2>cloud-based File storage system</h2>
+<p>Upload,manage,and share files securely.</p>
+p></p><!-- Upload Section -->
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+
+<hr>
+
+<!-- Uploaded Files Section -->
+<h3>Uploaded Files</h3>
+
+<div>
+    {% if files %}
+        <ul>
+            {% for file in files %}
+                <li>
+    {{ file }}
+    -
+    <li>
+    {{ file }}
+    -
+    <a href="/uploads/{{ file }}" target="_blank">Share</a>
+</li>
+</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No files uploaded</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
